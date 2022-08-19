@@ -1,6 +1,8 @@
-﻿@{ 
+﻿@{
     Layout = null;
 }
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,6 +40,7 @@
     <![endif]-->
 
 </head>
+@inject LanguageService language
 <body>
     <!-- HEADER -->
     <header>
@@ -45,16 +48,23 @@
         <div id="top-header">
             <div class="container">
                 <ul class="header-links pull-right">
-                    <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
-                    <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
-                    <li>
-                        <i class="fa fa-language language"></i>
-                        <select class="input-select">
-                            <option value="1">Türkçe</option>
-                            <option value="2">İngilizce</option>
-                        </select>
-                    </li>
-                       
+                    <li><a href="#"><i class="fa fa-dollar"></i> TL</a></li>
+                    <li><a href="#"><i class="fa fa-user-o"></i> Hesabim</a></li>
+                    <div class="nav-wrapper">
+                        <div class="sl-nav">
+                            Dil:
+                            <ul>
+                                <li>
+                                    <div class="triangle"></div>
+                                    <ul class="language">
+                                        <li><a asp-controller="Home" asp-action="ChangeLanguage" asp-route-culture="en-US" class="nav-link">@language.Getkey("Dil2")</a></li>
+                                        <li><a asp-controller="Home" asp-action="ChangeLanguage" asp-route-culture="tr-TR" class="nav-link">@language.Getkey("Dil1")</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </ul>
             </div>
         </div>
@@ -79,18 +89,17 @@
                         <div class="header-search">
                             <form>
                                 <select class="input-select">
-                                    <option value="0">Tüm Ürünler</option>
-                                    <option value="1">Spor</option>
-                                    <option value="2">Aksiyon</option>
-                                    <option value="3">Strateji</option>
+                                    <option value="0">@language.Getkey("Tum_Urunler")</option>
+                                    <option value="1">@language.Getkey("Spor_Kategori")</option>
+                                    <option value="2"> @language.Getkey("Aksiyon_Kategori")</option>
+                                    <option value="3">@language.Getkey("Strateji_Kategori")</option>
                                 </select>
                                 <input class="input" placeholder="Arama">
-                                <button class="search-btn">Arama</button>
+                                <button class="search-btn">@language.Getkey("Arama")</button>
                             </form>
                         </div>
                     </div>
                     <!-- /SEARCH BAR -->
-                   
                     <!-- ACCOUNT -->
                     <div class="col-md-3 clearfix">
                         <div class="header-ctn">
@@ -98,7 +107,7 @@
                             <div>
                                 <a href="#">
                                     <i class="fa fa-heart"></i>
-                                    <span>Kütüphane</span>
+                                    <span> @language.Getkey("Kutuphane")</span>
                                     <div class="qty">2</div>
                                 </a>
                             </div>
@@ -107,7 +116,7 @@
                             <div class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                     <i class="fa fa-shopping-cart"></i>
-                                    <span>Sepetiniz</span>
+                                    <span> @language.Getkey("Sepet")</span>
                                     <div class="qty">3</div>
                                 </a>
                                 <div class="cart-dropdown">
@@ -139,8 +148,8 @@
                                         <h5>Sepet Tutarı: 1000 TL</h5>
                                     </div>
                                     <div class="cart-btns">
-                                        <a href="#">Sepete Git</a>
-                                        <a href="#">Hızlı Sipariş <i class="fa fa-arrow-circle-right"></i></a>
+                                        <a href="#">@language.Getkey("Sepete_Git")</a>
+                                        <a href="#"> @language.Getkey("Hizli_Siparis") <i class="fa fa-arrow-circle-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -172,11 +181,11 @@
             <div id="responsive-nav">
                 <!-- NAV -->
                 <ul class="main-nav nav navbar-nav">
-                    <li class="active"><a href="#">Ana Sayfa</a></li>
-                    <li><a href="#">indirimli Ürünler</a></li>
-                    <li><a href="#">Spor</a></li>
-                    <li><a href="#">Aksiyon</a></li>
-                    <li><a href="#">Strateji</a></li>
+                    <li class="active"><a href="#"> @language.Getkey("Ana_Sayfa")</a></li>
+                    <li><a href="#">@language.Getkey("Indirimli_Urunler")</a></li>
+                    <li><a href="#"> @language.Getkey("Spor_Kategori")</a></li>
+                    <li><a href="#">@language.Getkey("Aksiyon_Kategori")</a></li>
+                    <li><a href="#"> @language.Getkey("Strateji_Kategori")</a></li>
                 </ul>
                 <!-- /NAV -->
             </div>
@@ -205,7 +214,7 @@
                                             <div class="product-label">
                                                 <span class="sale">-30%</span>
                                                 <span class="new">NEW</span>
-                                               
+
                                             </div>
                                         </div>
                                         <div class="product-body">
@@ -219,7 +228,7 @@
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
                                             </div>
-                                            
+
                                         </div>
                                         <div class="add-to-cart">
                                             <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Sepete Ekle</button>
@@ -231,7 +240,7 @@
                                         <div class="product-img">
                                             <img src="~/img/product02.png" alt="">
                                             <div class="product-label">
-                                                
+
                                             </div>
                                         </div>
                                         <div class="product-body">
@@ -245,7 +254,7 @@
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star-o"></i>
                                             </div>
-                                          
+
                                         </div>
                                         <div class="add-to-cart">
                                             <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Sepete Ekle</button>
@@ -266,7 +275,7 @@
                                             <h4 class="product-price">980.00 TL <del class="product-old-price">$990.00</del></h4>
                                             <div class="product-rating">
                                             </div>
-                                           
+
                                         </div>
                                         <div class="add-to-cart">
                                             <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Sepete Ekle</button>
@@ -289,7 +298,7 @@
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
                                             </div>
-                                            
+
                                         </div>
                                         <div class="add-to-cart">
                                             <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Sepete Ekle</button>
@@ -312,7 +321,7 @@
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
                                             </div>
-                                            
+
                                         </div>
                                         <div class="add-to-cart">
                                             <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Sepete Ekle</button>
@@ -333,11 +342,8 @@
         <!-- /container -->
     </div>
     <!-- /SECTION -->
-
-   
     <!-- /SECTION -->
     <!-- SECTION -->
-    
     <!-- /SECTION -->
     <!-- NEWSLETTER -->
     <div id="newsletter" class="section">
@@ -347,7 +353,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="newsletter">
-                        <a href="mailto:erolemrecan@outlook.com">Bir sorununuz varsa bize iletin <i class="fa fa-envelope-open"></i></a>
+                        <a href="mailto:erolemrecan@outlook.com"> @language.Getkey("Sorun_Iletimi") <i class="fa fa-envelope-open"></i></a>
                         <br>
                         <br>
                         <ul class="newsletter-follow">
@@ -382,24 +388,24 @@
                 <div class="row">
                     <div class="col-md-3 col-xs-6">
                         <div class="footer">
-                            <h3 class="footer-title">About Us</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+                            <h3 class="footer-title">@language.Getkey("Hakkimizda")</h3>
+                            <p>Berkay Aygül, Emre Can Erol</p>
                             <ul class="footer-links">
                                 <li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
                                 <li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-                                <li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+                                <li><a href="#"><i class="fa fa-envelope-o"></i>erolemrecan@outlook.com</a></li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="col-md-3 col-xs-6">
                         <div class="footer">
-                            <h3 class="footer-title">Categories</h3>
+                            <h3 class="footer-title">@language.Getkey("Kategoriler")</h3>
                             <ul class="footer-links">
-                                <li><a href="#">İndirimli Ürünler</a></li>
-                                <li><a href="#">Spor</a></li>
-                                <li><a href="#">Aksiyon</a></li>
-                                <li><a href="#">Strateji</a></li>
+                                <li><a href="#">@language.Getkey("Indirimli_Urunler")</a></li>
+                                <li><a href="#">@language.Getkey("Spor_Kategori")</a></li>
+                                <li><a href="#">@language.Getkey("Aksiyon_Kategori")</a></li>
+                                <li><a href="#">@language.Getkey("Strateji_Kategori")</a></li>
                             </ul>
                         </div>
                     </div>
@@ -408,13 +414,13 @@
 
                     <div class="col-md-3 col-xs-6">
                         <div class="footer">
-                            <h3 class="footer-title">Bilgi</h3>
+                            <h3 class="footer-title"> @language.Getkey("Bilgi")</h3>
                             <ul class="footer-links">
-                                <li><a href="#">Hakkımızda</a></li>
-                                <li><a href="mailto:erolemrecan@outlook.com">İletişime Geçin</a></li>
-                                <li><a href="#">Gizlilik Politikası</a></li>
-                                <li><a href="#">İade Şartları</a></li>
-                                <li><a href="#">Şartlar ve Sözleşmeler</a></li>
+                                <li><a href="#"> @language.Getkey("Hakkimizda")</a></li>
+                                <li><a href="mailto:erolemrecan@outlook.com">@language.Getkey("Iletisime_Gecme") </a></li>
+                                <li><a href="#"> @language.Getkey("Gizlilik_Politikasi")</a></li>
+                                <li><a href="#"> @language.Getkey("Iade_Sartlari")</a></li>
+                                <li><a href="#">@language.Getkey("Sartlar_ve_Sozlesmeler")</a></li>
                             </ul>
                         </div>
                     </div>
