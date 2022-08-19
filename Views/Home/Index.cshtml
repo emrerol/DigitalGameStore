@@ -49,7 +49,7 @@
             <div class="container">
                 <ul class="header-links pull-right">
                     <li><a href="#"><i class="fa fa-dollar"></i> TL</a></li>
-                    <li><a href="#"><i class="fa fa-user-o"></i> Hesabim</a></li>
+                    <li><a href="#"><i class="fa fa-user-o"></i> @language.Getkey("Hesabim")</a></li>
                     <div class="nav-wrapper">
                         <div class="sl-nav">
                             Dil:
@@ -94,7 +94,7 @@
                                     <option value="2"> @language.Getkey("Aksiyon_Kategori")</option>
                                     <option value="3">@language.Getkey("Strateji_Kategori")</option>
                                 </select>
-                                <input class="input" placeholder="Arama">
+                                <input class="input" placeholder=@language.Getkey("Arama")>
                                 <button class="search-btn">@language.Getkey("Arama")</button>
                             </form>
                         </div>
@@ -390,10 +390,11 @@
                         <div class="footer">
                             <h3 class="footer-title">@language.Getkey("Hakkimizda")</h3>
                             <p>Berkay Aygül, Emre Can Erol</p>
+                            
                             <ul class="footer-links">
-                                <li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
                                 <li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
                                 <li><a href="#"><i class="fa fa-envelope-o"></i>erolemrecan@outlook.com</a></li>
+                                <li><a><i class="fa fa-arrow-down"></i>Our Location</a></li>
                             </ul>
                         </div>
                     </div>
@@ -429,6 +430,12 @@
             </div>
             <!-- /container -->
         </div>
+      
+            <div id="map" style=" height: 400px; width: 100%; position:absolute; overflow: hidden">
+
+            </div>
+        
+       
     </footer>
     <!-- /FOOTER -->
     <!-- jQuery Plugins -->
@@ -438,6 +445,33 @@
     <script src="~/js/nouislider.min.js"></script>
     <script src="~/js/jquery.zoom.min.js"></script>
     <script src="~/js/main.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?AIzaSyDN6ouOIetcTEeu9NcrrWK5idnl_w7VEZQ&callback=initMap"></script>
+    <script>
+
+        function initMap() {
+            var options = {
+                zoom: 12,
+                center: { lat: 40.76371, lng: 30.36784 },
+                mapTypeId: 'roadmap'
+            }
+
+            var map = new google.maps.Map(document.getElementById("map"), options);
+
+            var marker = new google.maps.Marker({
+                position: { lat: 40.76371, lng: 30.36784 },
+                map: map
+            });
+
+            var info = new google.maps.InfoWindow({
+                content: '<h3> Our Location </h3>'
+            });
+
+            marker.addEventListener('click', function () {
+                info.open(map, marker);
+            })
+        }
+
+    </script>
 
 </body>
 </html>

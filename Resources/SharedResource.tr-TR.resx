@@ -141,6 +141,9 @@
   <data name="Hakkimizda" xml:space="preserve">
     <value>Hakkımızda</value>
   </data>
+  <data name="Hesabim" xml:space="preserve">
+    <value>Hesabım</value>
+  </data>
   <data name="Hizli_Siparis" xml:space="preserve">
     <value>Hızlı Sipariş</value>
   </data>
