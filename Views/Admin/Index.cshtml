@@ -1,0 +1,69 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<head>
+    <title>Admin Paneli</title>
+
+</head>
+<body>
+    <header class="admin__header">
+        <h1>
+            Digital Game Store Admin Panel
+        </h1>
+    </header>
+
+    <div class="admin__routes">
+        <a asp-action="Index" asp-controller="Products">Products</a>
+        <a asp-action="Index" asp-controller="Publishers">Publishers</a>
+        <a asp-action="Index" asp-controller="Campaigns">Campaigns</a>
+        <a asp-action="Index" asp-controller="Categories">Categories</a>
+        <a asp-action="Index" asp-controller="Carts">Cart</a>
+        <a asp-action="Index" asp-controller="DiscountedProducts">Discounted Products</a>
+        <a asp-action="Index" asp-controller="Genres">Genre</a>
+        <a asp-action="Index" asp-controller="Orders">Order</a>
+        <a asp-action="Index" asp-controller="OrderDetails">Order Details</a>
+        <a asp-action="Index" asp-controller="Photos">Photos</a>
+        <a asp-action="Index" asp-controller="UserLibrary">UserLibrary</a>
+
+    </div>
+    
+    <style>
+        .admin__header {
+            width: 100%;
+            background-color:#231d1d;
+            color:#fff;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .admin__routes {
+            border-radius:25px;
+            margin:15px;
+            padding:15px;
+            background-color:#ff0000;
+            display:flex;
+          /*  flex: 1 1 auto;*/
+            flex-wrap:wrap;
+            justify-content:space-around;
+            gap:3rem;
+            
+        }
+
+            .admin__routes a {
+                border-radius:15px;
+                text-decoration: none;
+                color: #000000;
+                background-color:wheat;
+                padding:3em;
+            }
+    </style>
+
+
+</body>
+
+

@@ -1,0 +1,51 @@
+﻿@model DigitalGameStore.Models.DiscountedProducts
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DiscountedProducts</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Porduct)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Porduct.ID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DiscountRate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DiscountRate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OtherCampaign)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OtherCampaign)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
