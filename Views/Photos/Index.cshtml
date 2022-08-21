@@ -31,7 +31,8 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.URL)
+                <img src="@Url.Content(item.URL)" class="d-block w-25" asp-append-version="true" />
+                @*@Html.DisplayFor(modelItem => item.URL)*@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Product.ID)

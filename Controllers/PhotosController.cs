@@ -7,16 +7,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DigitalGameStore.Data;
 using DigitalGameStore.Models;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace DigitalGameStore.Controllers
 {
     public class PhotosController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _hostingEnvironment;
 
-        public PhotosController(ApplicationDbContext context)
+        public PhotosController(ApplicationDbContext context, IWebHostEnvironment hostingEnvironment)
         {
             _context = context;
+            _hostingEnvironment = hostingEnvironment;
         }
 
         // GET: Photos
@@ -61,6 +65,19 @@ namespace DigitalGameStore.Controllers
         {
             if (ModelState.IsValid)
             {
+                string webRootPath = _hostingEnvironment.WebRootPath;
+                var files = HttpContext.Request.Form.Files;
+
+                string fileName = Guid.NewGuid().ToString();
+                var uploads = Path.Combine(webRootPath, @"img");
+                var extension = Path.GetExtension(files[0].FileName);
+
+                using (var fileStream = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
+                {
+                    files[0].CopyTo(fileStream);
+                }
+                photos.URL = @"/img" + "/" +fileName + extension;
+
                 _context.Add(photos);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -68,6 +85,15 @@ namespace DigitalGameStore.Controllers
             ViewData["ProductID"] = new SelectList(_context.Products, "ID", "ID", photos.ProductID);
             return View(photos);
         }
+            /*if (ModelState.IsValid)
+            {
+                _context.Add(photos);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["ProductID"] = new SelectList(_context.Products, "ID", "ID", photos.ProductID);
+            return View(photos);*/
+        
 
         // GET: Photos/Edit/5
         public async Task<IActionResult> Edit(int? id)
