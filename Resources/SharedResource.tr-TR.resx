@@ -168,6 +168,9 @@
   <data name="Sepet" xml:space="preserve">
     <value>Sepet</value>
   </data>
+  <data name="Sepete_Ekle" xml:space="preserve">
+    <value>Sepete Ekle</value>
+  </data>
   <data name="Sepete_Git" xml:space="preserve">
     <value>Sepete Git</value>
   </data>
@@ -182,5 +185,8 @@
   </data>
   <data name="Tum_Urunler" xml:space="preserve">
     <value>Tüm Ürünler</value>
+  </data>
+  <data name="Yeni" xml:space="preserve">
+    <value>Yeni</value>
   </data>
 </root>
