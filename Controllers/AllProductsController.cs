@@ -19,19 +19,8 @@ namespace DigitalGameStore.Controllers
 
         public IActionResult Index()
         {
-            var ProductsList = (from u in _context.Products
-                                join k in _context.Genres on u.GenreID equals k.ID
-                                join f in _context.Photos on u.ID equals f.ProductID
-                                select new ProductsDTO
-                                {
-                                    ID = u.ID,
-                                    Name = u.Name,
-                                    UnitPrice = u.UnitPrice,
-                                    PhotoName = f.Name,
-                                    UnitsInStock = u.UnitsInStock,
-                                    Genre = k.Name
-                                }).ToList();
-            return View(ProductsList);
+            var db = _context.Products;
+            return View(db.ToList());
         }
     }
     public class ProductsDTO

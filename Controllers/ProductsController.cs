@@ -26,6 +26,8 @@ namespace DigitalGameStore.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
+   
+
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
         {

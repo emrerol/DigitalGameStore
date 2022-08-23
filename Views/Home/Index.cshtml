@@ -101,6 +101,7 @@
                                 <input class="input" placeholder=@language.Getkey("Arama")>
                                 <button class="search-btn">@language.Getkey("Arama")</button>
                             </form>
+                            
                         </div>
                     </div>
                     <!-- /SEARCH BAR -->
@@ -191,6 +192,7 @@
                     <li><a href="#"> @language.Getkey("Spor_Kategori")</a></li>
                     <li><a href="#">@language.Getkey("Aksiyon_Kategori")</a></li>
                     <li><a href="#"> @language.Getkey("Strateji_Kategori")</a></li>
+                    <li><a asp-action="Index" asp-controller="AllProducts">Tüm Ürünler</a></li>
                 </ul>
                 <!-- /NAV -->
             </div>
@@ -460,9 +462,9 @@
 
         function initMap() {
             var options = {
-                zoom: 12,
+                zoom: 15,
                 center: { lat: 40.76371, lng: 30.36784 },
-                mapTypeId: 'satellite'
+                mapTypeId: 'roadmap'
             }
 
             var map = new google.maps.Map(document.getElementById("map"), options);

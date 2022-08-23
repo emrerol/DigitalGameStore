@@ -1,0 +1,96 @@
+﻿@model IEnumerable<DigitalGameStore.Models.Products>
+@inject LanguageService language
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+        <!-- Bootstrap -->
+        <link type="text/css" rel="stylesheet" href="../wwwroot/css/bootstrap.min.css" />
+
+        <!-- Slick -->
+        <link type="text/css" rel="stylesheet" href="../wwwroot/css/slick.css" />
+        <link type="text/css" rel="stylesheet" href="../wwwroot/css/slick-theme.css" />
+
+        <!-- nouislider -->
+        <link type="text/css" rel="stylesheet" href="../wwwroot/css/nouislider.min.css" />
+
+        <!-- Font Awesome Icon -->
+        <link rel="stylesheet" href="../wwwroot/css/font-awesome.min.css">
+
+        <!-- Custom stlylesheet -->
+        <link type="text/css" rel="stylesheet" href="../wwwroot/css/style.css" />
+    </head>
+
+    <body>
+        @foreach (var item in Model)
+        {
+            
+                                    <div class="all-products">
+                                      
+                                  
+                                        <div class="product-body">
+                                            <img src="~/img/img-doom_eternal.jpg" alt="">
+                                            <h3 class="product-name"><a href="#">@Url.Content(item.Name)</a></h3>
+                                            <h4 class="product-price">@Url.Content(item.UnitPrice.ToString()) <del class="product-old-price">@Url.Content((item.UnitPrice + 200).ToString()) $</del></h4>
+                                        </div>
+                                        <div class="add-to-cart">
+                                            
+                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> @language.Getkey("Sepete_Ekle")</button>
+                                        </div>
+                                    </div>
+                 
+        }
+
+
+        <script src="../wwwroot/js/jquery.min.js"></script>
+        <script src="../wwwroot/js/bootstrap.min.js"></script>
+        <script src="../wwwroot/js/slick.min.js"></script>
+        <script src="../wwwroot/js/nouislider.min.js"></script>
+        <script src="../wwwroot/js/jquery.zoom.min.js"></script>
+        <script src="../wwwroot/js/main.js"></script>
+            
+
+        <style>
+            .all-products {
+                margin: 25px;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                background-color: aquamarine;
+                /*flex-direction:column;*/
+                gap: 10px;
+            }
+
+            .product-body {
+                margin-left:25px;
+                display:flex;
+                flex-direction:column;
+            }
+
+            .product-body img {
+                max-width:100px;
+            }
+
+            .all-products  h3 a {
+                color:#fff;
+                text-decoration:none;
+            }
+            .add-to-cart {
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                margin-right: 20px;        
+            }
+
+            .add-to-cart button {
+                background: linear-gradient(to right, #ee3838, #ed8b8b);
+                border:none;
+                border-radius: 25px;
+                padding:15px;
+                color:wheat;
+            }
+        </style>
+       </body>
+
+    </html>

@@ -29,7 +29,8 @@ namespace DigitalGameStore.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var db = _context.Products;
+            return View(db.ToList());
         }
        
         public IActionResult ChangeLanguage(string culture)
