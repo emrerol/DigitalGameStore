@@ -42,6 +42,7 @@
 </head>
 @inject LanguageService language
 <body>
+    
     <!-- HEADER -->
     <header>
         <!-- TOP HEADER -->
@@ -79,6 +80,7 @@
                 <div class="row">
                     <!-- LOGO -->
                     <div class="col-md-3">
+                        <partial name="_LoginPartial" />
                         <div class="header-logo">
                             <a href="#" class="logo">
                                 <img src="~/img/logo.png" alt="">
@@ -106,6 +108,7 @@
                     <div class="col-md-3 clearfix">
                         <div class="header-ctn">
                             <!-- Wishlist -->
+                            
                             <div>
                                 <a href="#">
                                     <i class="fa fa-heart"></i>
@@ -283,7 +286,7 @@
                                                 <i class="fa fa-star-o"></i>
                                             </div>
 
-                                            </div>
+                                        </div>
                                         <div class="add-to-cart">
                                             <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> @language.Getkey("Sepete_Ekle")</button>
                                         </div>
@@ -397,7 +400,7 @@
                         <div class="footer">
                             <h3 class="footer-title">@language.Getkey("Hakkimizda")</h3>
                             <p>Berkay Aygül, Emre Can Erol</p>
-                            
+
                             <ul class="footer-links">
                                 <li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
                                 <li><a href="#"><i class="fa fa-envelope-o"></i>erolemrecan@outlook.com</a></li>
@@ -437,12 +440,12 @@
             </div>
             <!-- /container -->
         </div>
-      
-            <div id="map" style=" height: 400px; width: 100%; position:absolute; overflow: hidden">
 
-            </div>
-        
-       
+        <div id="map" style=" height: 400px; width: 100%; position:absolute; overflow: hidden">
+
+        </div>
+
+
     </footer>
     <!-- /FOOTER -->
     <!-- jQuery Plugins -->
@@ -457,7 +460,7 @@
 
         function initMap() {
             var options = {
-                zoom: 12,  
+                zoom: 12,
                 center: { lat: 40.76371, lng: 30.36784 },
                 mapTypeId: 'satellite'
             }
